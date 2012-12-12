@@ -51,10 +51,11 @@ NOCONFIGURE=1 ./autogen.sh
 %files -f %{name}.lang
 %doc ChangeLog README COPYING
 %dir %{_libexecdir}/%{name}
+%{_sysconfdir}/mateconf/schemas/mate-window-picker-applet.schemas
+%{_sysconfdir}/mateconf/schemas/maximus.schemas
 %config %{_sysconfdir}/xdg/autostart/mate-maximus-autostart.desktop
 %{_bindir}/mate-maximus
 %{_libexecdir}/%{name}/mate-window-picker-applet
 %{_datadir}/dbus-1/services/*.service
 #{_datadir}/glib-2.0/schemas/*.xml
 %{_datadir}/mate-panel/
-
