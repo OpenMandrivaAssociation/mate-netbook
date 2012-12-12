@@ -55,6 +55,6 @@ NOCONFIGURE=1 ./autogen.sh
 %{_bindir}/mate-maximus
 %{_libexecdir}/%{name}/mate-window-picker-applet
 %{_datadir}/dbus-1/services/*.service
-%{_datadir}/glib-2.0/schemas/*.xml
+#{_datadir}/glib-2.0/schemas/*.xml
 %{_datadir}/mate-panel/
 
