@@ -13,7 +13,7 @@ BuildRequires:	mate-common
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libmatewnck)
-BuildRequires:	pkgconfig(libmatepanelapplet-4.0)
+BuildRequires:	pkgconfig(libmatepanelapplet-3.0)
 BuildRequires:	pkgconfig(libfakekey)
 BuildRequires:	pkgconfig(mate-doc-utils)
 BuildRequires:	pkgconfig(unique-1.0)
