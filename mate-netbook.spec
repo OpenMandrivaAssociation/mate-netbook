@@ -8,6 +8,7 @@ License:	GPLv3
 Group:		Graphical desktop/GNOME
 Url:		http://mate-desktop.org
 Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0:		mate-netbook-1.4.0_glib_h.patch
 
 BuildRequires:	intltool
 BuildRequires:	mate-common
@@ -34,6 +35,7 @@ following functionality:
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 NOCONFIGURE=1 ./autogen.sh
