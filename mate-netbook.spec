@@ -2,26 +2,22 @@
 
 Summary:	MATE Desktop window management tool
 Name:           mate-netbook
-Version:	1.4.0
+Version:	1.8.0
 Release:	1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
 Url:		http://mate-desktop.org
 Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
-Patch0:		mate-netbook-1.4.0_glib_h.patch
 
 BuildRequires:	intltool
 BuildRequires:	mate-common
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libfakekey)
-BuildRequires:	pkgconfig(libmateui-2.0)
-BuildRequires:	pkgconfig(libmatewnck)
-BuildRequires:	pkgconfig(libmatepanelapplet-3.0)
-BuildRequires:	pkgconfig(mate-doc-utils)
+BuildRequires:	pkgconfig(libmatepanelapplet-4.0)
+BuildRequires:	pkgconfig(libwnck-1.0)
+BuildRequires:	pkgconfig(mate-desktop-2.0)
 BuildRequires:	pkgconfig(unique-1.0)
-BuildRequires:	pkgconfig(xtst)
-
 Requires:	mate-panel
 
 %description
@@ -36,26 +32,29 @@ following functionality:
 %prep
 %setup -q
 %apply_patches
+NOCONFIGURE=1 ./autogen.sh
 
 %build
-NOCONFIGURE=1 ./autogen.sh
 %configure2_5x \
 	--libexecdir=%{_libexecdir}/%{name}
 
-%make LIBS='-lm'
+%make
 
 %install
 %makeinstall_std
+
+# remove unneeded converter
+rm -fr %{buildroot}%{_datadir}/MateConf
+
 %find_lang %{name} --with-gnome --all-name
 
 %files -f %{name}.lang
 %doc ChangeLog README COPYING
-%dir %{_libexecdir}/%{name}
-%{_sysconfdir}/mateconf/schemas/mate-window-picker-applet.schemas
-%{_sysconfdir}/mateconf/schemas/maximus.schemas
 %config %{_sysconfdir}/xdg/autostart/mate-maximus-autostart.desktop
 %{_bindir}/mate-maximus
+%dir %{_libexecdir}/%{name}
 %{_libexecdir}/%{name}/mate-window-picker-applet
 %{_datadir}/dbus-1/services/*.service
-#{_datadir}/glib-2.0/schemas/*.xml
+%{_datadir}/glib-2.0/schemas/*.xml
 %{_datadir}/mate-panel/
+
