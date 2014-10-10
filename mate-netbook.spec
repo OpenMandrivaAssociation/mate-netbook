@@ -2,7 +2,7 @@
 
 Summary:	MATE Desktop window management tool
 Name:           mate-netbook
-Version:	1.8.0
+Version:	1.8.1
 Release:	1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
@@ -35,7 +35,7 @@ following functionality:
 NOCONFIGURE=1 ./autogen.sh
 
 %build
-%configure2_5x \
+%configure \
 	--libexecdir=%{_libexecdir}/%{name}
 
 %make
@@ -57,4 +57,5 @@ rm -fr %{buildroot}%{_datadir}/MateConf
 %{_datadir}/dbus-1/services/*.service
 %{_datadir}/glib-2.0/schemas/*.xml
 %{_datadir}/mate-panel/
+%{_mandir}/man1/mate-maximus.1*
 
