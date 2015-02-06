@@ -3,7 +3,7 @@
 Summary:	MATE Desktop window management tool
 Name:           mate-netbook
 Version:	1.8.1
-Release:	1
+Release:	2
 License:	GPLv3
 Group:		Graphical desktop/GNOME
 Url:		http://mate-desktop.org
