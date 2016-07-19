@@ -2,8 +2,8 @@
 
 Summary:	MATE Desktop window management tool
 Name:           mate-netbook
-Version:	1.8.1
-Release:	2
+Version:	1.14.0
+Release:	1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
 Url:		http://mate-desktop.org
@@ -12,12 +12,12 @@ Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.
 BuildRequires:	intltool
 BuildRequires:	mate-common
 BuildRequires:	pkgconfig(glib-2.0)
-BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libfakekey)
 BuildRequires:	pkgconfig(libmatepanelapplet-4.0)
-BuildRequires:	pkgconfig(libwnck-1.0)
+BuildRequires:	pkgconfig(libwnck-3.0)
 BuildRequires:	pkgconfig(mate-desktop-2.0)
-BuildRequires:	pkgconfig(unique-1.0)
+BuildRequires:	pkgconfig(unique-3.0)
 Requires:	mate-panel
 
 %description
@@ -36,7 +36,8 @@ NOCONFIGURE=1 ./autogen.sh
 
 %build
 %configure \
-	--libexecdir=%{_libexecdir}/%{name}
+	--libexecdir=%{_libexecdir}/%{name} \
+	--with-gtk=3.0
 
 %make
 
