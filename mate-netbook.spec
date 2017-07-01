@@ -1,8 +1,8 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 Summary:	MATE Desktop window management tool
-Name:           mate-netbook
-Version:	1.14.0
+Name:		mate-netbook
+Version:	1.18.1
 Release:	1
 License:	GPLv3
 Group:		Graphical desktop/GNOME
@@ -32,25 +32,22 @@ following functionality:
 %prep
 %setup -q
 %apply_patches
-NOCONFIGURE=1 ./autogen.sh
 
 %build
+#NOCONFIGURE=1 ./autogen.sh
 %configure \
 	--libexecdir=%{_libexecdir}/%{name} \
-	--with-gtk=3.0
-
+	%{nil}
 %make
 
 %install
 %makeinstall_std
 
-# remove unneeded converter
-rm -fr %{buildroot}%{_datadir}/MateConf
-
+# locales
 %find_lang %{name} --with-gnome --all-name
 
 %files -f %{name}.lang
-%doc ChangeLog README COPYING
+%doc ChangeLog README COPYING NEWS
 %config %{_sysconfdir}/xdg/autostart/mate-maximus-autostart.desktop
 %{_bindir}/mate-maximus
 %dir %{_libexecdir}/%{name}
