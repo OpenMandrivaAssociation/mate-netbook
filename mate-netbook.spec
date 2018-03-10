@@ -2,7 +2,7 @@
 
 Summary:	MATE Desktop window management tool
 Name:		mate-netbook
-Version:	1.18.1
+Version:	1.18.2
 Release:	1
 License:	GPLv3
 Group:		Graphical desktop/Other
@@ -21,8 +21,6 @@ BuildRequires:	pkgconfig(mate-desktop-2.0)
 BuildRequires:	pkgconfig(unique-3.0)
 BuildRequires:	pkgconfig(xtst)
 BuildRequires:	yelp-tools
-
-
 
 Requires:	mate-panel
 
