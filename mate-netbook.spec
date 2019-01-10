@@ -2,7 +2,7 @@
 
 Summary:	MATE Desktop window management tool
 Name:		mate-netbook
-Version:	1.20.0
+Version:	1.20.1
 Release:	1
 License:	GPLv3
 Group:		Graphical desktop/Other
@@ -55,17 +55,17 @@ following functionality:
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 #NOCONFIGURE=1 ./autogen.sh
 %configure \
 	--libexecdir=%{_libexecdir}/%{name} \
 	%{nil}
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 # locales
 %find_lang %{name} --with-gnome --all-name
