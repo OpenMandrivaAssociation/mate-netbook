@@ -2,13 +2,14 @@
 
 Summary:	MATE Desktop window management tool
 Name:		mate-netbook
-Version:	1.22.2
+Version:	1.24.0
 Release:	1
 License:	GPLv3
 Group:		Graphical desktop/Other
 Url:		https://mate-desktop.org
 Source0:	https://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
 
+BuildRequires:	autoconf-archive
 BuildRequires:	intltool
 BuildRequires:	itstool
 BuildRequires:	mate-common
