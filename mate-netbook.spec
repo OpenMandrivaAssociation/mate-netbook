@@ -2,7 +2,7 @@
 
 Summary:	MATE Desktop window management tool
 Name:		mate-netbook
-Version:	1.24.0
+Version:	1.26.0
 Release:	1
 License:	GPLv3
 Group:		Graphical desktop/Other
