@@ -1,13 +1,13 @@
-%define url_ver %(echo %{version}|cut -d. -f1,2)
+%define mate_ver	%(echo %version | cut -d\. -f1-2)
 
 Summary:	MATE Desktop window management tool
 Name:		mate-netbook
 Version:	1.26.0
-Release:	2
+Release:	3
 License:	GPLv3
 Group:		Graphical desktop/Other
 Url:		https://mate-desktop.org
-Source0:	https://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	https://pub.mate-desktop.org/releases/%{mate_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	autoconf-archive
 BuildRequires:	intltool
@@ -55,8 +55,7 @@ following functionality:
 #---------------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 #NOCONFIGURE=1 ./autogen.sh
@@ -73,3 +72,4 @@ following functionality:
 
 %check
 desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/mate-maximus-autostart.desktop
+
